@@ -1,0 +1,26 @@
+{
+    "name": "crochetfeve0251/rocket-launcher-take-off",
+    "description": "Initialisation library for psr4 plugin",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "type": "library",
+    "authors": [
+        {
+            "name": "coquardcyr",
+            "email": "coquardcyr@gmail.com"
+        }
+    ],
+    "require": {
+        "crochetfeve0251/rocket-launcher-builder": "^0.0.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "RocketLauncherTakeOff\\": "inc/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RocketLauncherTakeOff\\Tests\\": "tests/"
+        }
+    }
+}
