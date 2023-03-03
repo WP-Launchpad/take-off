@@ -95,10 +95,8 @@ class ProjectConfigurations
      * @param Version $min_php
      * @param Version $min_wp
      */
-    public function __construct(PS4Namespace $namespace, PS4Namespace $test_namespace, Folder $code_folder, Folder $test_folder, string $name, string $description, string $author, URL $url, Version $min_php, Version $min_wp)
+    public function __construct(Folder $code_folder, Folder $test_folder, string $name, string $description, string $author, URL $url = null, Version $min_php = null, Version $min_wp = null)
     {
-        $this->namespace = $namespace;
-        $this->test_namespace = $test_namespace;
         $this->code_folder = $code_folder;
         $this->test_folder = $test_folder;
         $this->name = $name;
@@ -107,6 +105,12 @@ class ProjectConfigurations
         $this->url = $url;
         $this->min_php = $min_php;
         $this->min_wp = $min_wp;
+        $this->namespace = new PS4Namespace($this->generate_namespace($name) . '\\');
+        $this->test_namespace = new PS4Namespace( $this->namespace->get_value() . 'Tests\\');
+        $this->wordpress_key = new WordPressKey($this->generate_wp_key($name));
+        $this->constant_prefix = new ConstantPrefix($this->generate_constant_prefix($this->wordpress_key));
+        $this->hook_prefix = new HookPrefix($this->generate_function_prefix($this->wordpress_key));
+        $this->translation_key = new TranslationKey($this->generate_translation_key($this->wordpress_key));
     }
 
     /**
@@ -168,7 +172,7 @@ class ProjectConfigurations
     /**
      * @return URL
      */
-    public function get_url(): URL
+    public function get_url(): ?URL
     {
         return $this->url;
     }
@@ -208,7 +212,7 @@ class ProjectConfigurations
     /**
      * @return Version
      */
-    public function get_min_php(): Version
+    public function get_min_php(): ?Version
     {
         return $this->min_php;
     }
@@ -216,8 +220,32 @@ class ProjectConfigurations
     /**
      * @return Version
      */
-    public function get_min_wp(): Version
+    public function get_min_wp(): ?Version
     {
         return $this->min_wp;
+    }
+
+    protected function generate_namespace(string $name) {
+        $name = mb_convert_encoding($name, "ASCII", "UTF-8");
+        return str_replace(' ', '', preg_replace_callback('/\b\w/', function($match){
+            return strtoupper($match[0]);
+        }, $name) );
+    }
+
+    protected function generate_wp_key(string $name) {
+        $name = mb_convert_encoding($name, "ASCII", "UTF-8");
+        return strtolower(str_replace(" ", "-", $name));
+    }
+
+    protected function generate_constant_prefix(WordPressKey $wp_prefix) {
+        return str_replace('-', '_', strtoupper($wp_prefix->get_value())) . '_';
+    }
+
+    protected function generate_translation_key(WordPressKey $wp_prefix) {
+        return str_replace('-', '', $wp_prefix->get_value());
+    }
+
+    protected function generate_function_prefix(WordPressKey $wp_prefix) {
+        return str_replace('-', '_', $wp_prefix->get_value()) . '_';
     }
 }

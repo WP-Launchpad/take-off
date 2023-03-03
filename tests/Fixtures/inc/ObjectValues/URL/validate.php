@@ -1,11 +1,11 @@
 <?php
 return [
     'validValueShouldReturnSameValue' => [
-        'config' => 'test',
+        'config' => 'https://test.test/test/',
         'expected' => true
     ],
     'invalidShouldRaiseException' => [
-        'config' => 'https://test.test/test/',
+        'config' => 'test',
         'expected' => false
     ]
 ];
