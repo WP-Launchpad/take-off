@@ -5,7 +5,7 @@ namespace RocketLauncherTakeOff\Services;
 use League\Flysystem\Filesystem;
 use RocketLauncherTakeOff\Entities\ProjectConfigurations;
 
-class ProjectManager
+class PrefixManager
 {
     /**
      * @var Filesystem
@@ -20,11 +20,7 @@ class ProjectManager
         $this->filesystem = $filesystem;
     }
 
-    public function adapt(ProjectConfigurations $old_configurations, ProjectConfigurations $new_configurations) {
-
-    }
-
-    public function reload() {
+    public function replace(ProjectConfigurations $old_configurations, ProjectConfigurations $new_configurations) {
 
     }
 }
