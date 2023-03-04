@@ -1,12 +1,15 @@
 <?php
 
-namespace RocketLauncherTakeOff\Tests\Unit;
+namespace RocketLauncherTakeOff\Tests\Integration;
 
 use ReflectionObject;
-use WPMedia\PHPUnit\Unit\TestCase as UnitTestCase;
+use RocketLauncherBuilder\AppBuilder;
+use RocketLauncherTakeOff\ServiceProvider;
+use WPMedia\PHPUnit\Unit\VirtualFilesystemTestCase;
 
-abstract class TestCase extends UnitTestCase
+abstract class TestCase extends VirtualFilesystemTestCase
 {
+
     protected $config;
 
     protected function setUp(): void {
@@ -15,6 +18,8 @@ abstract class TestCase extends UnitTestCase
         if ( empty( $this->config ) ) {
             $this->loadTestDataConfig();
         }
+
+        $this->init();
 
     }
 
@@ -26,6 +31,17 @@ abstract class TestCase extends UnitTestCase
         return isset( $this->config['test_data'] )
             ? $this->config['test_data']
             : $this->config;
+    }
+
+    protected function launch_app(string $command) {
+        $argv = array_merge(['index.php'], explode(' ', $command));
+
+        $_SERVER['argv'] = $argv;
+        AppBuilder::enable_test_mode();
+        AppBuilder::init($this->rootVirtualUrl, [
+            ServiceProvider::class,
+        ]);
+        unset($_SERVER['argv']);
     }
 
     protected function loadTestDataConfig() {

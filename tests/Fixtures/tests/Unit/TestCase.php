@@ -1,11 +1,12 @@
+
 <?php
 
-namespace RocketLauncherTakeOff\Tests\Unit;
+namespace RocketLauncher\Tests\Unit;
 
 use ReflectionObject;
-use WPMedia\PHPUnit\Unit\TestCase as UnitTestCase;
+use WPMedia\PHPUnit\Unit\TestCase as BaseTestCase;
 
-abstract class TestCase extends UnitTestCase
+abstract class TestCase extends BaseTestCase
 {
     protected $config;
 
@@ -15,7 +16,6 @@ abstract class TestCase extends UnitTestCase
         if ( empty( $this->config ) ) {
             $this->loadTestDataConfig();
         }
-
     }
 
     public function configTestData() {
