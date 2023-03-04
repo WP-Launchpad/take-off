@@ -42,6 +42,7 @@ class ServiceProvider implements \RocketLauncherBuilder\ServiceProviders\Service
      */
     public function attach_commands(App $app): App
     {
-        // TODO: Implement attach_commands() method.
+
+        return $app;
     }
 }

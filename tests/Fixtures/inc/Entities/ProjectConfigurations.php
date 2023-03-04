@@ -34,8 +34,8 @@ return [
             'wordpress_key' => new WordPressKey('rocket-launcher'),
             'constant_prefix' => new ConstantPrefix('ROCKET_LAUNCHER_'),
             'hook_prefix' => new HookPrefix('rocket_launcher_'),
-            'namespace' => new PS4Namespace('RocketLauncher\\'),
-            'test_namespace' => new PS4Namespace('RocketLauncher\\Tests\\'),
+            'namespace' => new PS4Namespace('RocketLauncher'),
+            'test_namespace' => new PS4Namespace('RocketLauncher\\Tests'),
         ]
     ],
     'MyTestAppShouldReturnRightValues' => [
@@ -62,8 +62,8 @@ return [
             'wordpress_key' => new WordPressKey('my-test-app'),
             'constant_prefix' => new ConstantPrefix('MY_TEST_APP_'),
             'hook_prefix' => new HookPrefix('my_test_app_'),
-            'namespace' => new PS4Namespace('MyTestApp\\'),
-            'test_namespace' => new PS4Namespace('MyTestApp\\Tests\\'),
+            'namespace' => new PS4Namespace('MyTestApp'),
+            'test_namespace' => new PS4Namespace('MyTestApp\\Tests'),
         ]
     ]
 ];

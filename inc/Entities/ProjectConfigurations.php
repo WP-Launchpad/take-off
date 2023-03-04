@@ -105,8 +105,8 @@ class ProjectConfigurations
         $this->url = $url;
         $this->min_php = $min_php;
         $this->min_wp = $min_wp;
-        $this->namespace = new PS4Namespace($this->generate_namespace($name) . '\\');
-        $this->test_namespace = new PS4Namespace( $this->namespace->get_value() . 'Tests\\');
+        $this->namespace = new PS4Namespace($this->generate_namespace($name));
+        $this->test_namespace = new PS4Namespace( $this->namespace->get_value() . '\\Tests');
         $this->wordpress_key = new WordPressKey($this->generate_wp_key($name));
         $this->constant_prefix = new ConstantPrefix($this->generate_constant_prefix($this->wordpress_key));
         $this->hook_prefix = new HookPrefix($this->generate_function_prefix($this->wordpress_key));
