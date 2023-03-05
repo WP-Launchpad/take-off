@@ -68,7 +68,7 @@ class ServiceProvider implements ServiceProviderInterface
         $plugin_file_manager = new PluginFileManager($this->filesystem, $this->renderer);
         $prefix_manager = new PrefixManager($this->filesystem);
         $project_manager = new ProjectManager($this->filesystem);
-        $app->add(new InitializeProjectCommand($namespace_manager, $plugin_file_manager, $prefix_manager, $project_manager));
+        $app->add(new InitializeProjectCommand($this->configs, $namespace_manager, $plugin_file_manager, $prefix_manager, $project_manager));
         return $app;
     }
 }

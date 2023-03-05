@@ -4,6 +4,7 @@ namespace RocketLauncherTakeOff\Commands;
 
 use Ahc\Cli\IO\Interactor;
 use RocketLauncherBuilder\Commands\Command;
+use RocketLauncherBuilder\Entities\Configurations;
 use RocketLauncherTakeOff\Entities\ProjectConfigurations;
 use RocketLauncherTakeOff\ObjectValues\Folder;
 use RocketLauncherTakeOff\ObjectValues\InvalidValue;
@@ -16,6 +17,11 @@ use RocketLauncherTakeOff\Services\ProjectManager;
 
 class InitializeProjectCommand extends Command
 {
+
+    /**
+     * @var Configurations
+     */
+    protected $configurations;
 
     /**
      * @var NamespaceManager
@@ -37,10 +43,11 @@ class InitializeProjectCommand extends Command
      */
     protected $project_manager;
 
-    public function __construct(NamespaceManager $namespace_manager, PluginFileManager $plugin_file_manager, PrefixManager $prefix_manager, ProjectManager $project_manager)
+    public function __construct(Configurations $configurations, NamespaceManager $namespace_manager, PluginFileManager $plugin_file_manager, PrefixManager $prefix_manager, ProjectManager $project_manager)
     {
         parent::__construct('initialize', 'Initialize the project');
 
+        $this->configurations = $configurations;
         $this->namespace_manager = $namespace_manager;
         $this->plugin_file_manager = $plugin_file_manager;
         $this->prefix_manager = $prefix_manager;
@@ -118,7 +125,7 @@ class InitializeProjectCommand extends Command
         $tests_folder = new Folder('tests/');
 
         $new_configurations = new ProjectConfigurations($code_folder, $tests_folder, $name, $description, $author, $url, $php, $wp);
-        $old_configurations = new ProjectConfigurations($code_folder, $tests_folder, 'Rocket launcher', '', '');
+        $old_configurations = new ProjectConfigurations($code_folder, $tests_folder, $this->psr4_namespace_to_project_name($this->configurations->getBaseNamespace()));
 
         $this->namespace_manager->replace($old_configurations, $new_configurations);
 
@@ -132,4 +139,19 @@ class InitializeProjectCommand extends Command
 
         $this->project_manager->cleanup();
     }
+
+    protected function psr4_namespace_to_project_name(string $psr4_namespace) {
+        if(strlen($psr4_namespace) === 0) {
+            return '';
+        }
+        $psr4_namespace = rtrim($psr4_namespace, '\\');
+        $lastNamespaceSegment = substr($psr4_namespace, strrpos($psr4_namespace, '\\') + 1);
+
+        $words = preg_split('/(?=[A-Z])/', $lastNamespaceSegment, -1, PREG_SPLIT_NO_EMPTY);
+
+        $projectName = $psr4_namespace[0] . implode(' ', $words);
+
+        return strtolower($projectName);
+    }
+
 }

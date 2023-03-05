@@ -95,7 +95,7 @@ class ProjectConfigurations
      * @param Version $min_php
      * @param Version $min_wp
      */
-    public function __construct(Folder $code_folder, Folder $test_folder, string $name, string $description, string $author, URL $url = null, Version $min_php = null, Version $min_wp = null)
+    public function __construct(Folder $code_folder, Folder $test_folder, string $name, string $description = '', string $author = '', URL $url = null, Version $min_php = null, Version $min_wp = null)
     {
         $this->code_folder = $code_folder;
         $this->test_folder = $test_folder;
