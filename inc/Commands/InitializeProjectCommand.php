@@ -10,6 +10,7 @@ use RocketLauncherTakeOff\ObjectValues\Folder;
 use RocketLauncherTakeOff\ObjectValues\InvalidValue;
 use RocketLauncherTakeOff\ObjectValues\URL;
 use RocketLauncherTakeOff\ObjectValues\Version;
+use RocketLauncherTakeOff\Services\LinterManager;
 use RocketLauncherTakeOff\Services\NamespaceManager;
 use RocketLauncherTakeOff\Services\PluginFileManager;
 use RocketLauncherTakeOff\Services\PrefixManager;
@@ -43,7 +44,12 @@ class InitializeProjectCommand extends Command
      */
     protected $project_manager;
 
-    public function __construct(Configurations $configurations, NamespaceManager $namespace_manager, PluginFileManager $plugin_file_manager, PrefixManager $prefix_manager, ProjectManager $project_manager)
+    /**
+     * @var LinterManager
+     */
+    protected $linter_manager;
+
+    public function __construct(Configurations $configurations, NamespaceManager $namespace_manager, PluginFileManager $plugin_file_manager, PrefixManager $prefix_manager, ProjectManager $project_manager, LinterManager $linter_manager)
     {
         parent::__construct('initialize', 'Initialize the project');
 
@@ -52,6 +58,7 @@ class InitializeProjectCommand extends Command
         $this->plugin_file_manager = $plugin_file_manager;
         $this->prefix_manager = $prefix_manager;
         $this->project_manager = $project_manager;
+        $this->linter_manager = $linter_manager;
 
         $this
             ->option('-n --name', 'Name from the project')
@@ -121,8 +128,8 @@ class InitializeProjectCommand extends Command
             }
         }
 
-        $code_folder = new Folder('inc/');
-        $tests_folder = new Folder('tests/');
+        $code_folder = new Folder($this->configurations->getCodeDir());
+        $tests_folder = new Folder($this->configurations->getTestDir());
 
         $new_configurations = new ProjectConfigurations($code_folder, $tests_folder, $name, $description, $author, $url, $php, $wp);
         $old_configurations = new ProjectConfigurations($code_folder, $tests_folder, $this->psr4_namespace_to_project_name($this->configurations->getBaseNamespace()));
@@ -134,6 +141,8 @@ class InitializeProjectCommand extends Command
         $this->project_manager->adapt($old_configurations, $new_configurations);
 
         $this->plugin_file_manager->generate($old_configurations, $new_configurations);
+
+        $this->linter_manager->generate($old_configurations, $new_configurations);
 
         $this->project_manager->reload();
 

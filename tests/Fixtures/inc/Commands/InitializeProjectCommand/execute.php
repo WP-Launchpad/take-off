@@ -81,6 +81,9 @@ return [
                         'exists' => true,
                         'content' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/bin/generator')
                     ],
+                    'phpcs.xml' => [
+                        'exists' => false,
+                    ],
                 ]
             ],
             'expected' => [
@@ -127,6 +130,10 @@ return [
                     'bin/generator' => [
                         'exists' => true,
                         'content' => file_get_contents(__DIR__ . '/files/bin/generator')
+                    ],
+                    'phpcs.xml' => [
+                        'exists' => true,
+                        'content' => file_get_contents(__DIR__ . '/files/phpcs.xml')
                     ],
                 ]
             ]
