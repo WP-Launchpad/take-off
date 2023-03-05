@@ -34,14 +34,40 @@ abstract class TestCase extends VirtualFilesystemTestCase
     }
 
     protected function launch_app(string $command) {
+
+        list($command, $args_mappings) = $this->save_param_with_spaces($command);
+
         $argv = array_merge(['index.php'], explode(' ', $command));
 
+        foreach ($args_mappings as $id => $value) {
+            foreach ($argv as $index => $arg) {
+                $argv[$index] = str_replace($id, $value, $arg);
+            }
+        }
         $_SERVER['argv'] = $argv;
         AppBuilder::enable_test_mode();
         AppBuilder::init($this->rootVirtualUrl, [
             ServiceProvider::class,
         ]);
         unset($_SERVER['argv']);
+    }
+
+    protected function save_param_with_spaces(string $command) {
+        if ( ! preg_match_all('/(?<content>"[^"]*")/m', $command, $results)) {
+            return [$command, []];
+        }
+        $args_mapping = [];
+
+        foreach ($results['content'] as $content) {
+            $id = uniqid('args_mapping_');
+            $args_mapping[$id] = $content;
+        }
+
+        foreach ($args_mapping as $id => $value) {
+            $command = str_replace($value, $id, $command);
+        }
+
+        return [$command, $args_mapping];
     }
 
     protected function loadTestDataConfig() {

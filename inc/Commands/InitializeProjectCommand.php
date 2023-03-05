@@ -79,8 +79,13 @@ class InitializeProjectCommand extends Command
     {
         $io = $this->app()->io();
 
+        $name =  trim($name, "'\"");
+
         $description = is_string($description) ? $description : '';
+        $description =  trim($description, "'\"");
+
         $author = is_string($author) ? $author : '';
+        $author =  trim($author, "'\"");
 
         if($url) {
             try {

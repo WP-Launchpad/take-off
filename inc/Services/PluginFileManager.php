@@ -59,13 +59,12 @@ class PluginFileManager
 
         $comment = $this->renderer->apply_template('plugin_comment.php.tpl', $params);
 
-
         $content = $this->filesystem->read($file);
         $pattern = "/(\/\*\*\s+\*\s+Plugin\s+Name:.*\*\/\s+)/s";
         $new_content = preg_replace($pattern, $comment, $content);
 
         $this->filesystem->update($file, $new_content);
 
-        $this->filesystem->forceRename($file, $new_configurations->get_wordpress_key()->get_value() . '.php');
+        $this->filesystem->rename($file, $new_configurations->get_wordpress_key()->get_value() . '.php');
     }
 }

@@ -41,6 +41,7 @@ class ProjectManager
         if( key_exists('type', $json)) {
             $json['type'] = 'wordpress-plugin';
         }
+
         if (key_exists('extra', $json) && key_exists('mozart', $json['extra']) || key_exists('dep_namespace', $json['extra']['mozart'])) {
             $json['extra']['mozart']['dep_namespace'] = $new_configurations->get_namespace()->get_value() . '\\Dependencies\\';
         }

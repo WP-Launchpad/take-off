@@ -22,4 +22,4 @@ define( 'ROCKET_LAUNCHER_INC_PATH',              realpath( ROCKET_LAUNCHER_PATH 
 define( 'ROCKET_LAUNCHER_TEMPLATE_PATH',         realpath( ROCKET_LAUNCHER_PATH . 'templates/' ) . '/' );
 
 
-require ROCKET_LAUNCHER__INC_PATH . 'main.php';
+require ROCKET_LAUNCHER_INC_PATH . 'main.php';

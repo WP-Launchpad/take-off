@@ -31,11 +31,14 @@ class NamespaceManager
     }
 
     protected function replace_namespace_folder(Folder $folder, PS4Namespace $old_namespace, PS4Namespace $new_namespace) {
-        $files = $this->filesystem->listFiles($folder->get_value(), true);
+        $files = $this->filesystem->listContents($folder->get_value(), true);
         foreach ($files as $file) {
-            $content = $this->filesystem->read($file);
+            if($file['type'] !== 'file' || $file['extension'] !== 'php') {
+                continue;
+            }
+            $content = $this->filesystem->read($file['path']);
             $content = $this->replace_namespace_content($content, $old_namespace, $new_namespace);
-            $this->filesystem->update($file, $content);
+            $this->filesystem->update($file['path'], $content);
         }
     }
 
