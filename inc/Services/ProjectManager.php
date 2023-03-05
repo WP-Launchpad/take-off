@@ -3,6 +3,7 @@
 namespace RocketLauncherTakeOff\Services;
 
 use Composer\Command\InstallCommand;
+use Composer\EventDispatcher\ScriptExecutionException;
 use Composer\IO\NullIO;
 use League\Flysystem\Filesystem;
 use RocketLauncherTakeOff\Entities\ProjectConfigurations;
@@ -85,19 +86,21 @@ class ProjectManager
 
         $jsonFile = $this->filesystem->getAdapter()->getPathPrefix() . 'composer.json';
 
-// Create a new Composer instance with the configuration
         $composer = Factory::create(new NullIO(), $jsonFile);
-// Create a new install command
         $command = new InstallCommand();
         $command->setComposer($composer);
-// Run the install command
         $arguments = array(
-            'command' => 'install',
-            '--no-progress' => true
+            '--no-scripts' => true,
         );
+        $command->addOption('no-plugins');
+        $command->addOption('no-scripts');
         $input = new ArrayInput($arguments);
         $output = new BufferedOutput();
-        $command->run($input, $output);
+        try {
+            $command->run($input, $output);
+        } catch (ScriptExecutionException $e) {
+
+        }
     }
 
     public function cleanup() {
