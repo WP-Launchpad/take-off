@@ -2,8 +2,17 @@
 
 namespace RocketLauncherTakeOff\Services;
 
+use Composer\Command\InstallCommand;
+use Composer\IO\NullIO;
 use League\Flysystem\Filesystem;
 use RocketLauncherTakeOff\Entities\ProjectConfigurations;
+use RocketLauncherTakeOff\ServiceProvider;
+use Composer\Factory;
+use Composer\Json\JsonFile;
+use Composer\Composer;
+use Composer\Console\Application;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\BufferedOutput;
 
 class ProjectManager
 {
@@ -13,6 +22,7 @@ class ProjectManager
     protected $filesystem;
 
     const PROJECT_FILE = 'composer.json';
+    const BUILDER_FILE = 'bin/generator';
 
     /**
      * @param Filesystem $filesystem
@@ -59,10 +69,6 @@ class ProjectManager
             unset($json['autoload']['psr-4'][$old_test_namespace]);
         }
 
-        if(key_exists('require-dev', $json) && key_exists('crochetfeve0251/rocket-launcher-take-off', $json['require-dev'])) {
-            unset($json['require-dev']['crochetfeve0251/rocket-launcher-take-off']);
-        }
-
         $content = json_encode($json, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES) . "\n";
 
         $this->filesystem->update(self::PROJECT_FILE, $content);
@@ -70,5 +76,47 @@ class ProjectManager
 
     public function reload() {
 
+        if(defined('WPMEDIA_IS_TESTING')) {
+            return;
+        }
+
+        $this->filesystem->deleteDir('inc/Dependencies');
+        $this->filesystem->createDir('inc/Dependencies');
+
+        $jsonFile = $this->filesystem->getAdapter()->getPathPrefix() . 'composer.json';
+
+// Create a new Composer instance with the configuration
+        $composer = Factory::create(new NullIO(), $jsonFile);
+// Create a new install command
+        $command = new InstallCommand();
+        $command->setComposer($composer);
+// Run the install command
+        $arguments = array(
+            'command' => 'install',
+            '--no-progress' => true
+        );
+        $input = new ArrayInput($arguments);
+        $output = new BufferedOutput();
+        $command->run($input, $output);
+    }
+
+    public function cleanup() {
+        $content = $this->filesystem->read(self::BUILDER_FILE);
+
+        $content = preg_replace('/\n *\\\\' . preg_quote(ServiceProvider::class) . '::class,\n/', '', $content);
+
+        $this->filesystem->update(self::BUILDER_FILE, $content);
+
+        $content = $this->filesystem->read(self::PROJECT_FILE);
+
+        $json = json_decode($content, true);
+
+        if(key_exists('require-dev', $json) && key_exists('crochetfeve0251/rocket-launcher-take-off', $json['require-dev'])) {
+            unset($json['require-dev']['crochetfeve0251/rocket-launcher-take-off']);
+        }
+
+        $content = json_encode($json, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES) . "\n";
+
+        $this->filesystem->update(self::PROJECT_FILE, $content);
     }
 }

@@ -2,6 +2,9 @@
 return [
     'vfs_dir' => '/',
     'structure' => [
+        'bin' => [
+          'generator' =>   file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/bin/generator'),
+        ],
         'inc' => [
             'main.php' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/main.php'),
             'Plugin.php' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/Plugin.php'),
@@ -74,6 +77,10 @@ return [
                         'exists' => true,
                         'content' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Integration/TestCase.php')
                     ],
+                    'bin/generator' => [
+                        'exists' => true,
+                        'content' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/bin/generator')
+                    ],
                 ]
             ],
             'expected' => [
@@ -116,6 +123,10 @@ return [
                     'tests/Integration/TestCase.php' => [
                         'exists' => true,
                         'content' => file_get_contents(__DIR__ . '/files/tests/Integration/TestCase.php')
+                    ],
+                    'bin/generator' => [
+                        'exists' => true,
+                        'content' => file_get_contents(__DIR__ . '/files/bin/generator')
                     ],
                 ]
             ]

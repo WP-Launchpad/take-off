@@ -129,5 +129,7 @@ class InitializeProjectCommand extends Command
         $this->plugin_file_manager->generate($old_configurations, $new_configurations);
 
         $this->project_manager->reload();
+
+        $this->project_manager->cleanup();
     }
 }
