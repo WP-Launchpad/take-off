@@ -19,7 +19,7 @@ AppBuilder::init(__DIR__ . '/../', [
 ```
 
 ## Usage
-To initialize the porject run the following command: `initialize`.
+To initialize the project run the following command: `initialize`.
 
 On the command the following options are available:
 | Option        | Short option | Value              | Default | Description                                                                 |
