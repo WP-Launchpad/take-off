@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "crochetfeve0251/rocket-launcher-builder": "^0.0.5",
+        "crochetfeve0251/rocket-launcher-builder": "^1.0.0",
         "ext-mbstring": "*",
         "ext-json": "*",
         "composer/composer": "^2.5"
