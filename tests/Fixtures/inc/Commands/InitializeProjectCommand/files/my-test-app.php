@@ -7,13 +7,11 @@
  * Text Domain: mytestapp
  * Domain Path: /languages
  */
+use function MyTestApp\Dependencies\RocketLauncherCore\boot;
+
 defined( 'ABSPATH' ) || exit;
 
-define( 'MY_TEST_APP_VERSION',               '1.0.0' );
-define( 'MY_TEST_APP_FILE',                  __FILE__ );
-define( 'MY_TEST_APP_PATH',                  realpath( plugin_dir_path( MY_TEST_APP_FILE ) ) . '/' );
-define( 'MY_TEST_APP_INC_PATH',              realpath( MY_TEST_APP_PATH . 'inc/' ) . '/' );
-define( 'MY_TEST_APP_TEMPLATE_PATH',         realpath( MY_TEST_APP_PATH . 'templates/' ) . '/' );
 
+require __DIR__ . '/inc/Dependencies/RocketLauncherCore/boot.php';
 
-require MY_TEST_APP_INC_PATH . 'main.php';
+boot(__FILE__);

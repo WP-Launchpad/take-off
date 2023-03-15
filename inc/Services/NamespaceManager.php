@@ -28,6 +28,20 @@ class NamespaceManager
         $this->replace_namespace_folder($code_folder, $old_configurations->get_namespace(), $new_configurations->get_namespace());
         $this->replace_namespace_folder($test_folder, $old_configurations->get_test_namespace(), $new_configurations->get_test_namespace());
         $this->replace_namespace_folder($test_folder, $old_configurations->get_namespace(), $new_configurations->get_namespace());
+
+        $files = [
+            $old_configurations->get_wordpress_key()->get_value() . '.php',
+            $new_configurations->get_wordpress_key()->get_value() . '.php',
+        ];
+
+        foreach ($files as $file) {
+            if(! $this->filesystem->has($file)) {
+                continue;
+            }
+            $content = $this->filesystem->read($file);
+            $content = $this->replace_namespace_content($content, $old_configurations->get_namespace(), $new_configurations->get_namespace());
+            $this->filesystem->update($file, $content);
+        }
     }
 
     protected function replace_namespace_folder(Folder $folder, PS4Namespace $old_namespace, PS4Namespace $new_namespace) {
@@ -46,6 +60,7 @@ class NamespaceManager
         $old_namespace = $old_namespace->get_value();
         $new_namespace = $new_namespace->get_value();
         $content = preg_replace("/namespace $old_namespace/", "namespace $new_namespace", $content);
+        $content = preg_replace("/use function $old_namespace/", "use function $new_namespace", $content);
         return preg_replace("/use $old_namespace\\\\/", "use $new_namespace\\\\", $content);
     }
 }

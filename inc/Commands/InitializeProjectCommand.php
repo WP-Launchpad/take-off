@@ -12,6 +12,7 @@ use RocketLauncherTakeOff\ObjectValues\URL;
 use RocketLauncherTakeOff\ObjectValues\Version;
 use RocketLauncherTakeOff\Services\LinterManager;
 use RocketLauncherTakeOff\Services\NamespaceManager;
+use RocketLauncherTakeOff\Services\ParametersManager;
 use RocketLauncherTakeOff\Services\PluginFileManager;
 use RocketLauncherTakeOff\Services\PrefixManager;
 use RocketLauncherTakeOff\Services\ProjectManager;
@@ -49,7 +50,12 @@ class InitializeProjectCommand extends Command
      */
     protected $linter_manager;
 
-    public function __construct(Configurations $configurations, NamespaceManager $namespace_manager, PluginFileManager $plugin_file_manager, PrefixManager $prefix_manager, ProjectManager $project_manager, LinterManager $linter_manager)
+    /**
+     * @var ParametersManager
+     */
+    protected $parameter_manager;
+
+    public function __construct(Configurations $configurations, NamespaceManager $namespace_manager, PluginFileManager $plugin_file_manager, PrefixManager $prefix_manager, ProjectManager $project_manager, LinterManager $linter_manager, ParametersManager $parameter_manager)
     {
         parent::__construct('initialize', 'Initialize the project');
 
@@ -59,6 +65,7 @@ class InitializeProjectCommand extends Command
         $this->prefix_manager = $prefix_manager;
         $this->project_manager = $project_manager;
         $this->linter_manager = $linter_manager;
+        $this->parameter_manager = $parameter_manager;
 
         $this
             ->option('-n --name', 'Name from the project')
@@ -143,6 +150,8 @@ class InitializeProjectCommand extends Command
         $this->plugin_file_manager->generate($old_configurations, $new_configurations);
 
         $this->linter_manager->generate($old_configurations, $new_configurations);
+
+        $this->parameter_manager->generate($old_configurations, $new_configurations);
 
         $this->project_manager->reload();
 

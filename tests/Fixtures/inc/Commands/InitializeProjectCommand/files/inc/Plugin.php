@@ -37,7 +37,7 @@ class Plugin
     public function __construct( Container $container ) {
         $this->container = $container;
 
-        add_filter( 'my_test_app_container', [ $this, 'get_container' ] );
+        add_filter( 'rocket_launcher_container', [ $this, 'get_container' ] );
 
     }
 

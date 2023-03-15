@@ -5,6 +5,9 @@ return [
         'bin' => [
           'generator' =>   file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/bin/generator'),
         ],
+        'configs' => [
+            'parameters.php' =>   file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/configs/parameters.php'),
+        ],
         'inc' => [
             'main.php' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/main.php'),
             'Plugin.php' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/Plugin.php'),
@@ -84,6 +87,10 @@ return [
                     'phpcs.xml' => [
                         'exists' => false,
                     ],
+                    'configs/parameters.php' => [
+                        'exists' => true,
+                        'content' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/configs/parameters.php')
+                    ],
                 ]
             ],
             'expected' => [
@@ -134,6 +141,10 @@ return [
                     'phpcs.xml' => [
                         'exists' => true,
                         'content' => file_get_contents(__DIR__ . '/files/phpcs.xml')
+                    ],
+                    'configs/parameters.php' => [
+                        'exists' => true,
+                        'content' => file_get_contents(__DIR__ . '/files/configs/parameters.php')
                     ],
                 ]
             ]

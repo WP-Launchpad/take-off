@@ -11,6 +11,7 @@ use RocketLauncherBuilder\Templating\Renderer;
 use RocketLauncherTakeOff\Commands\InitializeProjectCommand;
 use RocketLauncherTakeOff\Services\LinterManager;
 use RocketLauncherTakeOff\Services\NamespaceManager;
+use RocketLauncherTakeOff\Services\ParametersManager;
 use RocketLauncherTakeOff\Services\PluginFileManager;
 use RocketLauncherTakeOff\Services\PrefixManager;
 use RocketLauncherTakeOff\Services\ProjectManager;
@@ -70,7 +71,8 @@ class ServiceProvider implements ServiceProviderInterface
         $prefix_manager = new PrefixManager($this->filesystem);
         $project_manager = new ProjectManager($this->filesystem);
         $linter_manager = new LinterManager($this->filesystem, $this->renderer);
-        $app->add(new InitializeProjectCommand($this->configs, $namespace_manager, $plugin_file_manager, $prefix_manager, $project_manager, $linter_manager));
+        $parameter_manager = new ParametersManager($this->filesystem, $this->renderer);
+        $app->add(new InitializeProjectCommand($this->configs, $namespace_manager, $plugin_file_manager, $prefix_manager, $project_manager, $linter_manager, $parameter_manager));
         return $app;
     }
 }
