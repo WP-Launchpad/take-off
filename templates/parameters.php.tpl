@@ -1,5 +1,7 @@
 <?php
 
+defined( 'ABSPATH' ) || exit;
+
 $plugin_name = '{{ name }}';
 
 $plugin_launcher_path = dirname(__DIR__) . '/';

@@ -32,6 +32,7 @@ class NamespaceManager
         $files = [
             $old_configurations->get_wordpress_key()->get_value() . '.php',
             $new_configurations->get_wordpress_key()->get_value() . '.php',
+            'configs/providers.php',
         ];
 
         foreach ($files as $file) {
@@ -61,6 +62,7 @@ class NamespaceManager
         $new_namespace = $new_namespace->get_value();
         $content = preg_replace("/namespace $old_namespace/", "namespace $new_namespace", $content);
         $content = preg_replace("/use function $old_namespace/", "use function $new_namespace", $content);
+        $content = preg_replace("/\\\\$old_namespace(\\\\\w+\\\\?)/", "\\\\$new_namespace$1", $content);
         return preg_replace("/use $old_namespace\\\\/", "use $new_namespace\\\\", $content);
     }
 }

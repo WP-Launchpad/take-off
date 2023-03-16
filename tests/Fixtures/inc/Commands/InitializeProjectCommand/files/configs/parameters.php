@@ -1,5 +1,7 @@
 <?php
 
+defined( 'ABSPATH' ) || exit;
+
 $plugin_name = 'My test app';
 
 $plugin_launcher_path = dirname(__DIR__) . '/';
