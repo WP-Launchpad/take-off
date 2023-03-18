@@ -38,8 +38,8 @@ class ProjectManager
         $old_namespace = $old_configurations->get_namespace()->get_value() . '\\';
         $new_namespace = $new_configurations->get_namespace()->get_value() . '\\';
 
-        $old_test_namespace = $old_configurations->get_namespace()->get_value() . '\\';
-        $new_test_namespace = $new_configurations->get_namespace()->get_value() . '\\';
+        $old_test_namespace = $old_configurations->get_test_namespace()->get_value() . '\\';
+        $new_test_namespace = $new_configurations->get_test_namespace()->get_value() . '\\';
 
         $content = $this->filesystem->read(self::PROJECT_FILE);
 
@@ -65,9 +65,9 @@ class ProjectManager
             unset($json['autoload']['psr-4'][$old_namespace]);
         }
 
-        if(key_exists('autoload', $json) && key_exists('psr-4', $json['autoload']) && key_exists($old_test_namespace, $json['autoload']['psr-4'])) {
-            $json['autoload']['psr-4'][$new_test_namespace] = $json['autoload']['psr-4'][$old_test_namespace];
-            unset($json['autoload']['psr-4'][$old_test_namespace]);
+        if(key_exists('autoload-dev', $json) && key_exists('psr-4', $json['autoload-dev']) && key_exists($old_test_namespace, $json['autoload-dev']['psr-4'])) {
+            $json['autoload-dev']['psr-4'][$new_test_namespace] = $json['autoload-dev']['psr-4'][$old_test_namespace];
+            unset($json['autoload-dev']['psr-4'][$old_test_namespace]);
         }
 
         $content = json_encode($json, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES) . "\n";

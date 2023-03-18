@@ -62,7 +62,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "RocketLauncher\\Tests\\": "tests/"
+            "MyTestApp\\Tests\\": "tests/"
         }
     },
     "extra": {
