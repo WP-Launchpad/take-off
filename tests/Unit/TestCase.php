@@ -1,6 +1,6 @@
 <?php
 
-namespace RocketLauncherTakeOff\Tests\Unit;
+namespace LaunchpadTakeOff\Tests\Unit;
 
 use ReflectionObject;
 use WPMedia\PHPUnit\Unit\TestCase as UnitTestCase;

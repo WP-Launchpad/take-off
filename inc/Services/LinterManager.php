@@ -1,10 +1,10 @@
 <?php
 
-namespace RocketLauncherTakeOff\Services;
+namespace LaunchpadTakeOff\Services;
 
 use League\Flysystem\Filesystem;
-use RocketLauncherBuilder\Templating\Renderer;
-use RocketLauncherTakeOff\Entities\ProjectConfigurations;
+use LaunchpadCLI\Templating\Renderer;
+use LaunchpadTakeOff\Entities\ProjectConfigurations;
 
 class LinterManager
 {
