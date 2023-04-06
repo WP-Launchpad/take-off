@@ -1,5 +1,5 @@
 {
-    "name": "wp-launchpad/launchpad-take-off",
+    "name": "wp-launchpad/take-off",
     "description": "Initialisation library for the Launchpad framework",
     "minimum-stability": "stable",
     "license": "proprietary",
