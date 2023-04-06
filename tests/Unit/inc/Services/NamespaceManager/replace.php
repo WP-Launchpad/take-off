@@ -1,11 +1,11 @@
 <?php
 
-namespace RocketLauncherTakeOff\Tests\Unit\inc\Services\NamespaceManager;
+namespace LaunchpadTakeOff\Tests\Unit\inc\Services\NamespaceManager;
 
 use League\Flysystem\Filesystem;
 use Mockery;
-use RocketLauncherTakeOff\Entities\ProjectConfigurations;
-use RocketLauncherTakeOff\Services\NamespaceManager;
+use LaunchpadTakeOff\Entities\ProjectConfigurations;
+use LaunchpadTakeOff\Services\NamespaceManager;
 use RocketLauncherTakeOff\Tests\Unit\TestCase;
 
 class Test_Replace extends TestCase

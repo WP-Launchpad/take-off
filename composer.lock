@@ -729,7 +729,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "RocketLauncherBuilder\\": "inc/"
+                    "LaunchpadCLI\\": "inc/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",

@@ -1,6 +1,6 @@
 {
-    "name": "crochetfeve0251/rocket-launcher-take-off",
-    "description": "Initialisation library for psr4 plugin",
+    "name": "wp-launchpad/take-off",
+    "description": "Initialisation library for Launchpad",
     "minimum-stability": "stable",
     "license": "proprietary",
     "type": "library",
@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "crochetfeve0251/rocket-launcher-builder": "^1.0.0",
+        "wp-launchpad/cli": "^1.0.1",
         "ext-mbstring": "*",
         "ext-json": "*",
         "composer/composer": "^2.5"
@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "RocketLauncherTakeOff\\": "inc/"
+            "LaunchpadTakeOff\\": "inc/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "RocketLauncherTakeOff\\Tests\\": "tests/"
+            "LaunchpadTakeOff\\Tests\\": "tests/"
         }
     }
 }

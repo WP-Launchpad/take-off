@@ -1,10 +1,10 @@
 <?php
 
-namespace RocketLauncherTakeOff\Tests\inc\Unit\inc\ObjectValues\TranslationKey;
+namespace LaunchpadTakeOff\Tests\inc\Unit\inc\ObjectValues\TranslationKey;
 
-use RocketLauncherTakeOff\ObjectValues\InvalidValue;
-use RocketLauncherTakeOff\ObjectValues\TranslationKey;
-use RocketLauncherTakeOff\Tests\Unit\TestCase;
+use LaunchpadTakeOff\ObjectValues\InvalidValue;
+use LaunchpadTakeOff\ObjectValues\TranslationKey;
+use LaunchpadTakeOff\Tests\Unit\TestCase;
 
 class Test_Validate extends TestCase
 {

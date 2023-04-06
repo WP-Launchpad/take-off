@@ -3,7 +3,7 @@
 namespace RocketLauncherTakeOff\Services;
 
 use League\Flysystem\Filesystem;
-use RocketLauncherBuilder\Templating\Renderer;
+use LaunchpadCLI\Templating\Renderer;
 use RocketLauncherTakeOff\Entities\ProjectConfigurations;
 
 class ParametersManager

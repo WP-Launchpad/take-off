@@ -1,10 +1,10 @@
 <?php
 
-namespace RocketLauncherTakeOff\Tests\inc\Unit\inc\ObjectValues\WordPressKey;
+namespace LaunchpadTakeOff\Tests\inc\Unit\inc\ObjectValues\WordPressKey;
 
-use RocketLauncherTakeOff\ObjectValues\InvalidValue;
-use RocketLauncherTakeOff\ObjectValues\WordPressKey;
-use RocketLauncherTakeOff\Tests\Unit\TestCase;
+use LaunchpadTakeOff\ObjectValues\InvalidValue;
+use LaunchpadTakeOff\ObjectValues\WordPressKey;
+use LaunchpadTakeOff\Tests\Unit\TestCase;
 
 class Test_Validate extends TestCase
 {

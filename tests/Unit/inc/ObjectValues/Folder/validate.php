@@ -1,9 +1,9 @@
 <?php
 
-namespace RocketLauncherTakeOff\Tests\inc\Unit\inc\ObjectValues\Folder;
+namespace LaunchpadTakeOff\Tests\inc\Unit\inc\ObjectValues\Folder;
 
-use RocketLauncherTakeOff\ObjectValues\Folder;
-use RocketLauncherTakeOff\ObjectValues\InvalidValue;
+use LaunchpadTakeOff\ObjectValues\Folder;
+use LaunchpadTakeOff\ObjectValues\InvalidValue;
 use RocketLauncherTakeOff\Tests\Unit\TestCase;
 
 class Test_Validate extends TestCase

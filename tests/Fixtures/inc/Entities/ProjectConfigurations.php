@@ -1,11 +1,11 @@
 <?php
 
-use RocketLauncherTakeOff\ObjectValues\ConstantPrefix;
-use RocketLauncherTakeOff\ObjectValues\Folder;
-use RocketLauncherTakeOff\ObjectValues\HookPrefix;
-use RocketLauncherTakeOff\ObjectValues\PS4Namespace;
-use RocketLauncherTakeOff\ObjectValues\TranslationKey;
-use RocketLauncherTakeOff\ObjectValues\URL;
+use LaunchpadTakeOff\ObjectValues\ConstantPrefix;
+use LaunchpadTakeOff\ObjectValues\Folder;
+use LaunchpadTakeOff\ObjectValues\HookPrefix;
+use LaunchpadTakeOff\ObjectValues\PS4Namespace;
+use LaunchpadTakeOff\ObjectValues\TranslationKey;
+use LaunchpadTakeOff\ObjectValues\URL;
 use RocketLauncherTakeOff\ObjectValues\Version;
 use RocketLauncherTakeOff\ObjectValues\WordPressKey;
 

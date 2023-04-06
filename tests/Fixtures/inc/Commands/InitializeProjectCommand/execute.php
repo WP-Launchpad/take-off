@@ -3,21 +3,21 @@ return [
     'vfs_dir' => '/',
     'structure' => [
         'bin' => [
-          'generator' =>   file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/bin/generator'),
+          'generator' =>   file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/bin/generator'),
         ],
         'configs' => [
-            'parameters.php' =>   file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/configs/parameters.php'),
-            'providers.php' =>   file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/configs/providers.php'),
+            'parameters.php' =>   file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/configs/parameters.php'),
+            'providers.php' =>   file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/configs/providers.php'),
         ],
         'inc' => [
-            'main.php' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/main.php'),
-            'Plugin.php' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/Plugin.php'),
+            'main.php' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/main.php'),
+            'Plugin.php' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/Plugin.php'),
             'Engine' => [
-                'Test.php' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/Engine/Test.php'),
+                'Test.php' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/Engine/Test.php'),
             ]
         ],
-        'rocket-launcher.php' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/rocket-launcher.php'),
-        'composer.json' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/composer.json'),
+        'rocket-launcher.php' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/rocket-launcher.php'),
+        'composer.json' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/composer.json'),
         'tests' => [
             'Fixtures' => [
                 'classes' => [
@@ -25,15 +25,15 @@ return [
                 ]
             ],
             'Integration' => [
-                'TestCase.php' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Integration/TestCase.php'),
-                'bootstrap.php' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Integration/bootstrap.php'),
+                'TestCase.php' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Integration/TestCase.php'),
+                'bootstrap.php' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Integration/bootstrap.php'),
             ],
             'Unit' => [
                 'inc' => [
 
                 ],
-                'TestCase.php' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Unit/TestCase.php'),
-                'bootstrap.php' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Unit/bootstrap.php'),
+                'TestCase.php' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Unit/TestCase.php'),
+                'bootstrap.php' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Unit/bootstrap.php'),
             ]
         ]
     ],
@@ -44,57 +44,57 @@ return [
                 'files' => [
                     'inc/main.php' => [
                         'exists' => true,
-                        'content' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/main.php')
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/main.php')
                     ],
                     'inc/Plugin.php' => [
                         'exists' => true,
-                        'content' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/Plugin.php')
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/Plugin.php')
                     ],
                     'inc/Engine/Test.php' => [
                         'exists' => true,
-                        'content' =>  file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/Engine/Test.php')
+                        'content' =>  file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/Engine/Test.php')
                     ],
                     'rocket-launcher.php' => [
                         'exists' => true,
-                        'content' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/rocket-launcher.php')
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/rocket-launcher.php')
                     ],
                     'my-test-app.php' => [
                         'exists' => false,
                     ],
                     'composer.json' => [
                         'exists' => true,
-                        'content' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/composer.json')
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/composer.json')
                     ],
                     'tests/Unit/bootstrap.php' => [
                         'exists' => true,
-                        'content' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Unit/bootstrap.php')
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Unit/bootstrap.php')
                     ],
                     'tests/Unit/TestCase.php' => [
                         'exists' => true,
-                        'content' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Unit/TestCase.php')
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Unit/TestCase.php')
                     ],
                     'tests/Integration/bootstrap.php' => [
                         'exists' => true,
-                        'content' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Integration/bootstrap.php')
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Integration/bootstrap.php')
                     ],
                     'tests/Integration/TestCase.php' => [
                         'exists' => true,
-                        'content' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Integration/TestCase.php')
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Integration/TestCase.php')
                     ],
                     'bin/generator' => [
                         'exists' => true,
-                        'content' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/bin/generator')
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/bin/generator')
                     ],
                     'phpcs.xml' => [
                         'exists' => false,
                     ],
                     'configs/parameters.php' => [
                         'exists' => true,
-                        'content' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/configs/parameters.php')
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/configs/parameters.php')
                     ],
                     'configs/providers.php' => [
                         'exists' => true,
-                        'content' => file_get_contents(ROCKER_LAUNCHER_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/configs/providers.php')
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/configs/providers.php')
                     ],
                 ]
             ],

@@ -1,9 +1,9 @@
 <?php
 
-namespace RocketLauncherTakeOff\Services;
+namespace LaunchpadTakeOff\Services;
 
 use League\Flysystem\Filesystem;
-use RocketLauncherTakeOff\Entities\ProjectConfigurations;
+use LaunchpadTakeOff\Entities\ProjectConfigurations;
 
 class PrefixManager
 {

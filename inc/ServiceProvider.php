@@ -1,20 +1,20 @@
 <?php
 
-namespace RocketLauncherTakeOff;
+namespace LaunchpadTakeOff;
 
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
-use RocketLauncherBuilder\App;
-use RocketLauncherBuilder\Entities\Configurations;
-use RocketLauncherBuilder\ServiceProviders\ServiceProviderInterface;
-use RocketLauncherBuilder\Templating\Renderer;
-use RocketLauncherTakeOff\Commands\InitializeProjectCommand;
-use RocketLauncherTakeOff\Services\LinterManager;
-use RocketLauncherTakeOff\Services\NamespaceManager;
-use RocketLauncherTakeOff\Services\ParametersManager;
-use RocketLauncherTakeOff\Services\PluginFileManager;
-use RocketLauncherTakeOff\Services\PrefixManager;
-use RocketLauncherTakeOff\Services\ProjectManager;
+use LaunchpadCLI\App;
+use LaunchpadCLI\Entities\Configurations;
+use LaunchpadCLI\ServiceProviders\ServiceProviderInterface;
+use LaunchpadCLI\Templating\Renderer;
+use LaunchpadTakeOff\Commands\InitializeProjectCommand;
+use LaunchpadTakeOff\Services\LinterManager;
+use LaunchpadTakeOff\Services\NamespaceManager;
+use LaunchpadTakeOff\Services\ParametersManager;
+use LaunchpadTakeOff\Services\PluginFileManager;
+use LaunchpadTakeOff\Services\PrefixManager;
+use LaunchpadTakeOff\Services\ProjectManager;
 
 class ServiceProvider implements ServiceProviderInterface
 {

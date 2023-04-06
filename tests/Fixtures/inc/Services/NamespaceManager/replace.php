@@ -1,7 +1,7 @@
 <?php
 
-use RocketLauncherTakeOff\ObjectValues\Folder;
-use RocketLauncherTakeOff\ObjectValues\PS4Namespace;
+use LaunchpadTakeOff\ObjectValues\Folder;
+use LaunchpadTakeOff\ObjectValues\PS4Namespace;
 
 return [
         '' => [

@@ -1,10 +1,10 @@
 <?php
 
-namespace RocketLauncherTakeOff\Tests\inc\Unit\inc\ObjectValues\PS4Namespace;
+namespace LaunchpadTakeOff\Tests\inc\Unit\inc\ObjectValues\PS4Namespace;
 
-use RocketLauncherTakeOff\ObjectValues\InvalidValue;
-use RocketLauncherTakeOff\ObjectValues\PS4Namespace;
-use RocketLauncherTakeOff\Tests\Unit\TestCase;
+use LaunchpadTakeOff\ObjectValues\InvalidValue;
+use LaunchpadTakeOff\ObjectValues\PS4Namespace;
+use LaunchpadTakeOff\Tests\Unit\TestCase;
 
 class Test_Validate extends TestCase
 {

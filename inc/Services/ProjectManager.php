@@ -1,13 +1,13 @@
 <?php
 
-namespace RocketLauncherTakeOff\Services;
+namespace LaunchpadTakeOff\Services;
 
 use Composer\Command\InstallCommand;
 use Composer\EventDispatcher\ScriptExecutionException;
 use Composer\IO\NullIO;
 use League\Flysystem\Filesystem;
-use RocketLauncherTakeOff\Entities\ProjectConfigurations;
-use RocketLauncherTakeOff\ServiceProvider;
+use LaunchpadTakeOff\Entities\ProjectConfigurations;
+use LaunchpadTakeOff\ServiceProvider;
 use Composer\Factory;
 use Composer\Json\JsonFile;
 use Composer\Composer;

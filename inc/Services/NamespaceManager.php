@@ -1,11 +1,11 @@
 <?php
 
-namespace RocketLauncherTakeOff\Services;
+namespace LaunchpadTakeOff\Services;
 
 use League\Flysystem\Filesystem;
-use RocketLauncherTakeOff\Entities\ProjectConfigurations;
-use RocketLauncherTakeOff\ObjectValues\Folder;
-use RocketLauncherTakeOff\ObjectValues\PS4Namespace;
+use LaunchpadTakeOff\Entities\ProjectConfigurations;
+use LaunchpadTakeOff\ObjectValues\Folder;
+use LaunchpadTakeOff\ObjectValues\PS4Namespace;
 
 class NamespaceManager
 {

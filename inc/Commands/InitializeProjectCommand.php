@@ -1,21 +1,21 @@
 <?php
 
-namespace RocketLauncherTakeOff\Commands;
+namespace LaunchpadTakeOff\Commands;
 
 use Ahc\Cli\IO\Interactor;
-use RocketLauncherBuilder\Commands\Command;
-use RocketLauncherBuilder\Entities\Configurations;
-use RocketLauncherTakeOff\Entities\ProjectConfigurations;
-use RocketLauncherTakeOff\ObjectValues\Folder;
-use RocketLauncherTakeOff\ObjectValues\InvalidValue;
-use RocketLauncherTakeOff\ObjectValues\URL;
-use RocketLauncherTakeOff\ObjectValues\Version;
-use RocketLauncherTakeOff\Services\LinterManager;
-use RocketLauncherTakeOff\Services\NamespaceManager;
-use RocketLauncherTakeOff\Services\ParametersManager;
-use RocketLauncherTakeOff\Services\PluginFileManager;
-use RocketLauncherTakeOff\Services\PrefixManager;
-use RocketLauncherTakeOff\Services\ProjectManager;
+use LaunchpadCLI\Commands\Command;
+use LaunchpadCLI\Entities\Configurations;
+use LaunchpadTakeOff\Entities\ProjectConfigurations;
+use LaunchpadTakeOff\ObjectValues\Folder;
+use LaunchpadTakeOff\ObjectValues\InvalidValue;
+use LaunchpadTakeOff\ObjectValues\URL;
+use LaunchpadTakeOff\ObjectValues\Version;
+use LaunchpadTakeOff\Services\LinterManager;
+use LaunchpadTakeOff\Services\NamespaceManager;
+use LaunchpadTakeOff\Services\ParametersManager;
+use LaunchpadTakeOff\Services\PluginFileManager;
+use LaunchpadTakeOff\Services\PrefixManager;
+use LaunchpadTakeOff\Services\ProjectManager;
 
 class InitializeProjectCommand extends Command
 {

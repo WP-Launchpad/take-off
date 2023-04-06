@@ -1,8 +1,8 @@
 <?php
 
-namespace RocketLauncherTakeOff\Tests\inc\Unit\inc\ObjectValues\HookPrefix;
+namespace LaunchpadTakeOff\Tests\inc\Unit\inc\ObjectValues\HookPrefix;
 
-use RocketLauncherTakeOff\ObjectValues\HookPrefix;
+use LaunchpadTakeOff\ObjectValues\HookPrefix;
 use RocketLauncherTakeOff\ObjectValues\InvalidValue;
 use RocketLauncherTakeOff\Tests\Unit\TestCase;
 
