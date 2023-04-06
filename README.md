@@ -1,7 +1,7 @@
-# rocket-launcher-take-off
-Rocket Launcher Take Off is the library containing the CLI command used to initialize a Rocket Launcher project.
+# take-off
+Take Off is the library containing the CLI command used to initialize a Launchpad project.
 
-To install the library first launch the following command: `composer require CrochetFeve0251/rocket-launcher-take-off --dev`
+To install the library first launch the following command: `composer require wp-launchpad/take-off --dev`
 
 Then at the root from your project you can create a `builder` file with the following content:
 ```php
