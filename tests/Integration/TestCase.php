@@ -1,9 +1,9 @@
 <?php
 
-namespace RocketLauncherTakeOff\Tests\Integration;
+namespace LaunchpadTakeOff\Tests\Integration;
 
 use ReflectionObject;
-use RocketLauncherBuilder\AppBuilder;
+use LaunchpadCLI\AppBuilder;
 use RocketLauncherTakeOff\ServiceProvider;
 use WPMedia\PHPUnit\Unit\VirtualFilesystemTestCase;
 

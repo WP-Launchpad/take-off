@@ -1,9 +1,9 @@
 <?php
 
-namespace RocketLauncherTakeOff\Tests\Unit\inc\Entities;
+namespace LaunchpadTakeOff\Tests\Unit\inc\Entities;
 
-use RocketLauncherTakeOff\Entities\ProjectConfigurations;
-use RocketLauncherTakeOff\Tests\Unit\TestCase;
+use LaunchpadTakeOff\Entities\ProjectConfigurations;
+use LaunchpadTakeOff\Tests\Unit\TestCase;
 
 class Test_ProjectConfigurations extends TestCase
 {

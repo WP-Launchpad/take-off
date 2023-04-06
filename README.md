@@ -8,12 +8,12 @@ Then at the root from your project you can create a `builder` file with the foll
 
 #!/usr/bin/php
 <?php
-use RocketLauncherBuilder\AppBuilder;
+use LaunchpadCLI\AppBuilder;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
 AppBuilder::init(__DIR__ . '/../', [
-        \RocketLauncherTakeOff\ServiceProvider::class,
+        \LaunchpadTakeOff\ServiceProvider::class,
 ]);
 
 ```

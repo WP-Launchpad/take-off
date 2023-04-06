@@ -1,10 +1,10 @@
 <?php
 
-namespace RocketLauncherTakeOff\Tests\inc\Unit\inc\ObjectValues\ConstantPrefix;
+namespace LaunchpadTakeOff\Tests\inc\Unit\inc\ObjectValues\ConstantPrefix;
 
-use RocketLauncherTakeOff\ObjectValues\ConstantPrefix;
-use RocketLauncherTakeOff\ObjectValues\InvalidValue;
-use RocketLauncherTakeOff\Tests\Unit\TestCase;
+use LaunchpadTakeOff\ObjectValues\ConstantPrefix;
+use LaunchpadTakeOff\ObjectValues\InvalidValue;
+use LaunchpadTakeOff\Tests\Unit\TestCase;
 
 class Test_Validate extends TestCase
 {

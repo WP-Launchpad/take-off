@@ -1,12 +1,12 @@
 <?php
 
-namespace RocketLauncherTakeOff\Services;
+namespace LaunchpadTakeOff\Services;
 
 use League\Flysystem\Filesystem;
-use RocketLauncherBuilder\Templating\Renderer;
-use RocketLauncherTakeOff\Entities\ProjectConfigurations;
-use RocketLauncherTakeOff\ObjectValues\Folder;
-use RocketLauncherTakeOff\ObjectValues\WordPressKey;
+use LaunchpadCLI\Templating\Renderer;
+use LaunchpadTakeOff\Entities\ProjectConfigurations;
+use LaunchpadTakeOff\ObjectValues\Folder;
+use LaunchpadTakeOff\ObjectValues\WordPressKey;
 
 class PluginFileManager
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace RocketLauncherTakeOff\ObjectValues;
+namespace LaunchpadTakeOff\ObjectValues;
 
 class WordPressKey extends ObjectValue
 {
