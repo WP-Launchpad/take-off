@@ -4,7 +4,7 @@ namespace LaunchpadTakeOff\Tests\inc\Unit\inc\ObjectValues\Folder;
 
 use LaunchpadTakeOff\ObjectValues\Folder;
 use LaunchpadTakeOff\ObjectValues\InvalidValue;
-use RocketLauncherTakeOff\Tests\Unit\TestCase;
+use LaunchpadTakeOff\Tests\Unit\TestCase;
 
 class Test_Validate extends TestCase
 {

@@ -6,7 +6,7 @@ use League\Flysystem\Filesystem;
 use Mockery;
 use LaunchpadTakeOff\Entities\ProjectConfigurations;
 use LaunchpadTakeOff\Services\NamespaceManager;
-use RocketLauncherTakeOff\Tests\Unit\TestCase;
+use LaunchpadTakeOff\Tests\Unit\TestCase;
 
 class Test_Replace extends TestCase
 {
@@ -36,8 +36,8 @@ class Test_Replace extends TestCase
            $this->new_config->expects()->get_namespace()->andReturn($config['new_namespace']);
            $this->new_config->expects()->get_test_namespace()->andReturn($config['new_test_namespace']);
 
-           $this->filesystem->expects()->twice()->listFiles($expected['old_code_folder_path'], true)->andReturn($config['files']);
-           $this->filesystem->expects()->listFiles($expected['old_test_folder_path'], true)->andReturn($config['files']);
+           $this->filesystem->expects()->listContents($expected['old_code_folder_path'], true)->andReturn($config['files'])->twice();
+           $this->filesystem->expects()->listContents($expected['old_test_folder_path'], true)->andReturn($config['files']);
 
            foreach ($expected['files'] as $file) {
                $this->filesystem->expects()->read($file['path'])->andReturn($config['files_content'][$file['path']]);

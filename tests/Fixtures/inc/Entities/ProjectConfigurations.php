@@ -6,8 +6,8 @@ use LaunchpadTakeOff\ObjectValues\HookPrefix;
 use LaunchpadTakeOff\ObjectValues\PS4Namespace;
 use LaunchpadTakeOff\ObjectValues\TranslationKey;
 use LaunchpadTakeOff\ObjectValues\URL;
-use RocketLauncherTakeOff\ObjectValues\Version;
-use RocketLauncherTakeOff\ObjectValues\WordPressKey;
+use LaunchpadTakeOff\ObjectValues\Version;
+use LaunchpadTakeOff\ObjectValues\WordPressKey;
 
 return [
     'RocketLauncherShouldReturnRightValues' => [
