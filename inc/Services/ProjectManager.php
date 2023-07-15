@@ -53,11 +53,25 @@ class ProjectManager
             $json['type'] = 'wordpress-plugin';
         }
 
-        if (key_exists('extra', $json) && key_exists('mozart', $json['extra']) || key_exists('dep_namespace', $json['extra']['mozart'])) {
+        if (key_exists('extra', $json) && key_exists('mozart', $json['extra']) && key_exists('dep_namespace', $json['extra']['mozart'])) {
             $json['extra']['mozart']['dep_namespace'] = $new_configurations->get_namespace()->get_value() . '\\Dependencies\\';
         }
-        if(key_exists('extra', $json) && key_exists('mozart', $json['extra']) || key_exists('classmap_prefix', $json['extra']['mozart'])) {
+
+        if (key_exists('extra', $json) && key_exists('strauss', $json['extra']) && key_exists('namespace_prefix', $json['extra']['strauss'])) {
+            $json['extra']['strauss']['namespace_prefix'] = $new_configurations->get_namespace()->get_value() . '\\Dependencies\\';
+        }
+
+        if(key_exists('extra', $json) && key_exists('mozart', $json['extra']) && key_exists('classmap_prefix', $json['extra']['mozart'])) {
             $json['extra']['mozart']['classmap_prefix'] = $new_configurations->get_namespace()->get_value();
+        }
+
+        if(key_exists('extra', $json) && key_exists('strauss', $json['extra']) && key_exists('classmap_prefix', $json['extra']['strauss'])) {
+            $json['extra']['strauss']['classmap_prefix'] = $new_configurations->get_namespace()->get_value();
+        }
+
+
+        if(key_exists('extra', $json) && key_exists('strauss', $json['extra']) && key_exists('constant_prefix', $json['extra']['strauss'])) {
+            $json['extra']['strauss']['constant_prefix'] = $new_configurations->get_constant_prefix()->get_value();
         }
 
         if(key_exists('autoload', $json) && key_exists('psr-4', $json['autoload']) && key_exists($old_namespace, $json['autoload']['psr-4'])) {

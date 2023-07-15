@@ -59,10 +59,12 @@ class NamespaceManager
 
     protected function replace_namespace_content(string $content, PS4Namespace $old_namespace, PS4Namespace $new_namespace) {
         $old_namespace = $old_namespace->get_value();
+        $old_namespace_escaped = preg_quote($old_namespace);
         $new_namespace = $new_namespace->get_value();
-        $content = preg_replace("/namespace $old_namespace/", "namespace $new_namespace", $content);
-        $content = preg_replace("/use function $old_namespace/", "use function $new_namespace", $content);
-        $content = preg_replace("/\\\\$old_namespace(\\\\\w+\\\\?)/", "\\\\$new_namespace$1", $content);
-        return preg_replace("/use $old_namespace\\\\/", "use $new_namespace\\\\", $content);
+
+        $content = preg_replace("/namespace $old_namespace_escaped/", "namespace $new_namespace", $content);
+        $content = preg_replace("/use function $old_namespace_escaped/", "use function $new_namespace", $content);
+        $content = preg_replace("/\\\\$old_namespace_escaped(\\\\\w+\\\\?)/", "\\\\$new_namespace$1", $content);
+        return preg_replace("/use $old_namespace_escaped\\\\/", "use $new_namespace\\\\", $content);
     }
 }
