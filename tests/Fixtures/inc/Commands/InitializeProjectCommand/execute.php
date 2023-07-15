@@ -38,6 +38,111 @@ return [
         ]
     ],
     'test_data' => [
+        'straussShouldTransform' => [
+            'config' => [
+                'parameters' => ' -n "My test app"',
+                'composer' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/strauss_composer.json'),
+                'files' => [
+                    'inc/main.php' => [
+                        'exists' => true,
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/main.php')
+                    ],
+                    'inc/Plugin.php' => [
+                        'exists' => true,
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/Plugin.php')
+                    ],
+                    'inc/Engine/Test.php' => [
+                        'exists' => true,
+                        'content' =>  file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/inc/Engine/Test.php')
+                    ],
+                    'rocket-launcher.php' => [
+                        'exists' => true,
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/rocket-launcher.php')
+                    ],
+                    'my-test-app.php' => [
+                        'exists' => false,
+                    ],
+                    'composer.json' => [
+                        'exists' => true,
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/strauss_composer.json')
+                    ],
+                    'tests/Unit/bootstrap.php' => [
+                        'exists' => true,
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Unit/bootstrap.php')
+                    ],
+                    'tests/Unit/TestCase.php' => [
+                        'exists' => true,
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Unit/TestCase.php')
+                    ],
+                    'tests/Integration/bootstrap.php' => [
+                        'exists' => true,
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Integration/bootstrap.php')
+                    ],
+                    'tests/Integration/TestCase.php' => [
+                        'exists' => true,
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/tests/Integration/TestCase.php')
+                    ],
+                    'bin/generator' => [
+                        'exists' => true,
+                        'content' => file_get_contents(LAUNCHPAD_TAKE_OFF_TESTS_FIXTURES_DIR . '/files/bin/generator')
+                    ],
+                    'phpcs.xml' => [
+                        'exists' => false,
+                    ],
+                ]
+            ],
+            'expected' => [
+                'files' => [
+                    'inc/main.php' => [
+                        'exists' => true,
+                        'content' => file_get_contents(__DIR__ . '/files/inc/main.php')
+                    ],
+                    'inc/Plugin.php' => [
+                        'exists' => true,
+                        'content' => file_get_contents(__DIR__ . '/files/inc/Plugin.php')
+                    ],
+                    'inc/Engine/Test.php' => [
+                        'exists' => true,
+                        'content' =>  file_get_contents(__DIR__ . '/files/inc/Engine/Test.php')
+                    ],
+                    'rocket-launcher.php' => [
+                        'exists' => false,
+                    ],
+                    'my-test-app.php' => [
+                        'exists' => true,
+                        'content' => file_get_contents(__DIR__ . '/files/my-test-app.php')
+                    ],
+                    'composer.json' => [
+                        'exists' => true,
+                        'content' => file_get_contents(__DIR__ . '/files/strauss_composer.json')
+                    ],
+                    'tests/Unit/bootstrap.php' => [
+                        'exists' => true,
+                        'content' => file_get_contents(__DIR__ . '/files/tests/Unit/bootstrap.php')
+                    ],
+                    'tests/Unit/TestCase.php' => [
+                        'exists' => true,
+                        'content' => file_get_contents(__DIR__ . '/files/tests/Unit/TestCase.php')
+                    ],
+                    'tests/Integration/bootstrap.php' => [
+                        'exists' => true,
+                        'content' => file_get_contents(__DIR__ . '/files/tests/Integration/bootstrap.php')
+                    ],
+                    'tests/Integration/TestCase.php' => [
+                        'exists' => true,
+                        'content' => file_get_contents(__DIR__ . '/files/tests/Integration/TestCase.php')
+                    ],
+                    'bin/generator' => [
+                        'exists' => true,
+                        'content' => file_get_contents(__DIR__ . '/files/bin/generator')
+                    ],
+                    'phpcs.xml' => [
+                        'exists' => true,
+                        'content' => file_get_contents(__DIR__ . '/files/phpcs.xml')
+                    ],
+                ]
+            ]
+        ],
         'shouldTransform' => [
             'config' => [
                 'parameters' => ' -n "My test app"',
