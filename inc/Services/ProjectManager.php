@@ -116,6 +116,8 @@ class ProjectManager
         } catch (ScriptExecutionException $e) {
 
         }
+
+        new StraussApplication();
     }
 
     public function cleanup() {
