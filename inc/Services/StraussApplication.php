@@ -10,7 +10,10 @@ class StraussApplication extends Application
 {
     public function __construct() {
         parent::__construct('strauss');
+    }
 
+    public function strauss()
+    {
         $composeCommand = new Compose();
         $this->add($composeCommand);
 
