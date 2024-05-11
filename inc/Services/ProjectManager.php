@@ -95,6 +95,8 @@ class ProjectManager
             return;
         }
 
+        $straussApp = new StraussApplication();
+
         $this->filesystem->deleteDir('inc/Dependencies');
         $this->filesystem->deleteDir('vendor-prefixed');
         $this->filesystem->delete('composer.lock');
@@ -117,7 +119,7 @@ class ProjectManager
 
         }
 
-        new StraussApplication();
+        $straussApp->strauss();
     }
 
     public function cleanup() {
