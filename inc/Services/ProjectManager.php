@@ -97,6 +97,7 @@ class ProjectManager
 
         $this->filesystem->deleteDir('inc/Dependencies');
         $this->filesystem->deleteDir('vendor-prefixed');
+        $this->filesystem->delete('composer.lock');
 
         $jsonFile = $this->filesystem->getAdapter()->getPathPrefix() . 'composer.json';
 

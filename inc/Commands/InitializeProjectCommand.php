@@ -153,9 +153,9 @@ class InitializeProjectCommand extends Command
 
         $this->parameter_manager->generate($old_configurations, $new_configurations);
 
-        $this->project_manager->reload();
-
         $this->project_manager->cleanup();
+
+        $this->project_manager->reload();
     }
 
     protected function psr4_namespace_to_project_name(string $psr4_namespace) {
