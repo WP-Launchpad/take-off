@@ -96,7 +96,7 @@ class ProjectManager
         }
 
         $this->filesystem->deleteDir('inc/Dependencies');
-        $this->filesystem->createDir('inc/Dependencies');
+        $this->filesystem->deleteDir('vendor-prefixed');
 
         $jsonFile = $this->filesystem->getAdapter()->getPathPrefix() . 'composer.json';
 
@@ -130,6 +130,10 @@ class ProjectManager
 
         if(key_exists('require-dev', $json) && key_exists('crochetfeve0251/rocket-launcher-take-off', $json['require-dev'])) {
             unset($json['require-dev']['crochetfeve0251/rocket-launcher-take-off']);
+        }
+
+        if(key_exists('require-dev', $json) && key_exists('wp-launchpad/take-off', $json['require-dev'])) {
+            unset($json['require-dev']['wp-launchpad/take-off']);
         }
 
         $content = json_encode($json, JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES) . "\n";
