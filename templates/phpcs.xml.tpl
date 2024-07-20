@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="WP Rocket" xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
-    <description>The custom ruleset for Rocket launcher.</description>
+    <description>The custom ruleset for Launchpad.</description>
 
     <!-- For help in understanding this file: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml -->
     <!-- For help in using PHPCS: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage -->
@@ -9,13 +9,9 @@
 
     <file>.</file>
     <!-- Ignoring Files and Folders: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage#ignoring-files-and-folders -->
-    <exclude-pattern>/inc/deprecated/*</exclude-pattern>
-    <exclude-pattern>/inc/Engine/Container/*</exclude-pattern>
-    <exclude-pattern>/inc/Dependencies/*</exclude-pattern>
-    <exclude-pattern>/inc/classes/dependencies/*</exclude-pattern>
-    <exclude-pattern>/inc/vendors/*</exclude-pattern>
     <exclude-pattern>/tests/*</exclude-pattern>
     <exclude-pattern>/vendor/*</exclude-pattern>
+    <exclude-pattern>/vendor-prefixed/*</exclude-pattern>
     <exclude-pattern>/node_modules/*</exclude-pattern>
 
     <!-- ** HOW TO SCAN ** -->
