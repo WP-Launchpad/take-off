@@ -3,9 +3,9 @@ namespace {{ namespace }}\Configs;
 
 defined( 'ABSPATH' ) || exit;
 
-$plugin_name = '{{ name }}';
+$plugin_name = '{{ name }}'; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
-$plugin_launcher_path = dirname(__DIR__) . '/';
+$plugin_launcher_path = dirname(__DIR__) . '/'; // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
 return [
     'plugin_name' => $plugin_name,
