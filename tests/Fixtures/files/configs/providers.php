@@ -1,4 +1,5 @@
 <?php
+namespace RocketLauncher\Configs;
 
 defined( 'ABSPATH' ) || exit;
 

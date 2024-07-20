@@ -1,4 +1,5 @@
 <?php
+namespace MyTestApp\Configs;
 
 defined( 'ABSPATH' ) || exit;
 
