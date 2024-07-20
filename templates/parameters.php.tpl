@@ -1,4 +1,5 @@
 <?php
+namespace {{ namespace }}\Configs;
 
 defined( 'ABSPATH' ) || exit;
 

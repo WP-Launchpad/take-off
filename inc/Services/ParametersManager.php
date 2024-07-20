@@ -31,6 +31,7 @@ class ParametersManager
 
     public function generate(ProjectConfigurations $old_configurations, ProjectConfigurations $new_configurations) {
         $content = $this->renderer->apply_template('parameters.php.tpl', [
+            'namespace' => $new_configurations->get_namespace()->get_value(),
             'name' => $new_configurations->get_name(),
             'prefix' => $new_configurations->get_hook_prefix()->get_value(),
             'translation_key' => $new_configurations->get_translation_key()->get_value(),
