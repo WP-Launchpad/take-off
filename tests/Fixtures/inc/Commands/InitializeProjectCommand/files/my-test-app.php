@@ -7,6 +7,7 @@
  * Text Domain: mytestapp
  * Domain Path: /languages
  */
+
 use function MyTestApp\Dependencies\RocketLauncherCore\boot;
 
 defined( 'ABSPATH' ) || exit;

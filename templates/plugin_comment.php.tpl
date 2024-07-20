@@ -15,3 +15,4 @@
  * Text Domain: {{ translation_key }}
  * Domain Path: /languages
  */
+
